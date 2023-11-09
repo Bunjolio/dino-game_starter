@@ -23,12 +23,15 @@ game.onUpdateInterval(1500, function () {
     tiles.placeOnTile(projectile, tiles.getTileLocation(9, 5))
     projectile.setFlag(SpriteFlag.AutoDestroy, true)
     exit += 1
-    if (exit == 4) {
-        exit2 += randint(1, 2)
-        if (exit2 == 2) {
+    if (exit > 4) {
+        exit2 = randint(1, 10)
+        if (exit2 == 5) {
             pause(100)
             projectile = sprites.createProjectileFromSide(assets.image`fly`, randint(-120, -100), 0)
             tiles.placeOnTile(projectile, tiles.getTileLocation(9, 3))
+        } else if (exit2 == 10) {
+            projectile = sprites.createProjectileFromSide(assets.image`cactus0`, randint(-200, -100), 0)
+            tiles.placeOnTile(projectile, tiles.getTileLocation(9, 5))
         }
     }
 })
